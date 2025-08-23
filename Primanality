@@ -1,0 +1,25 @@
+public class Primanality {
+
+ public static void main(String[] args) {
+    boolean flag = false;
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Enter the number");
+
+    String x = sc.next();
+
+    try {
+      BigInteger num = new BigInteger(x);
+
+      if (num.isProbablePrime(1)) {
+        System.out.println("prime");
+      } else {
+        System.out.println("not prime");
+      }
+    } catch (Exception e) {
+      System.out.println("not prime");
+
+    }
+
+
+
+  }
