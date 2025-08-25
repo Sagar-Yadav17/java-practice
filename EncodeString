@@ -1,0 +1,34 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        // Reading three input strings
+        String s1 = sc.nextLine();
+        String s2 = sc.nextLine();
+        String s3 = sc.nextLine();
+        
+        // Splitting into parts
+        String[] p1 = splitParts(s1);
+        String[] p2 = splitParts(s2);
+        String[] p3 = splitParts(s3);
+        
+        // Output concatenated results
+        System.out.println(p1[0] + p2[0] + p3[0]);  // FRONT
+        System.out.println(p1[1] + p2[1] + p3[1]);  // MIDDLE
+        System.out.println(p1[2] + p2[2] + p3[2]);  // END
+    }
+
+    // Method to split string into FRONT, MIDDLE, END
+    public static String[] splitParts(String s) {
+        int n = s.length();
+        int base = n / 3;
+        int rem = n % 3;
+        
+        int f = base + (rem > 0 ? 1 : 0);  // extra char goes to FRONT
+        int m = base + (rem > 1 ? 1 : 0);  // next extra char goes to MIDDLE
+        int e = base;                      // remaining chars go to END
+        
+        String front = s.substring(0, f);
+        String middle = s.substring(f, f + m);
